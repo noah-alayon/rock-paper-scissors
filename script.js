@@ -36,6 +36,14 @@ function playRound(humanChoice, computerChoice) {
                 default:        console.log("N/A"); break;
             }
             break;
+        case PAPER:
+            switch (computerChoice) {
+                case ROCK:      console.log("You win! Paper beats Rock!"); break;
+                case PAPER:     console.log("Tie! Nobody wins this round"); break;
+                case SCISSORS:  console.log("You lose! Scissors beats Paper"); break;
+                default:        console.log("N/A"); break;
+            }
+            break;
     }
 }
 
