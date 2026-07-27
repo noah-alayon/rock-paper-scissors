@@ -26,5 +26,18 @@ function getHumanChoice() {
     }
 }
 
+function playRound(humanChoice, computerChoice) {
+    switch (humanChoice) {
+        case ROCK:
+            switch (computerChoice) {
+                case ROCK:      console.log("Tie! Nobody wins this round"); break;
+                case PAPER:     console.log("You lose! Paper beats Rock");  break;
+                case SCISSORS:  console.log("You win! Rock beats Scissors!"); break;
+                default:        console.log("N/A"); break;
+            }
+            break;
+    }
+}
+
 let humanScore = 0;
 let computerScore = 0;
