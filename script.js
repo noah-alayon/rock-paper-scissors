@@ -13,3 +13,15 @@ function getComputerChoice() {
         default:        return "N/A";
     }
 }
+
+function getHumanChoice() {
+    // Enter number between [0,2]
+    const choice = Number(prompt("Your Turn"));
+
+    switch (choice) {
+        case ROCK:      return "rock";
+        case PAPER:     return "paper";
+        case SCISSORS:  return "scissors";
+        default:        return "N/A";
+    }
+}
