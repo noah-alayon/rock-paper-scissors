@@ -25,3 +25,6 @@ function getHumanChoice() {
         default:        return "N/A";
     }
 }
+
+let humanScore = 0;
+let computerScore = 0;
