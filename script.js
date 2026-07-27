@@ -52,6 +52,9 @@ function playRound(humanChoice, computerChoice) {
                 default:        console.log("N/A"); break;
             }
             break;
+        default:
+            console.log("N/A");
+            break;
     }
 }
 
