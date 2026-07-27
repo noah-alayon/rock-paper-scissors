@@ -5,25 +5,13 @@ const SCISSORS = 2;
 function getComputerChoice() {
     // Generate number between [0,2]
     const choice = Math.floor(Math.random() * 3);
-
-    switch (choice) {
-        case ROCK: return "rock";
-        case PAPER: return "paper";
-        case SCISSORS: return "scissors";
-        default: return "N/A";
-    }
+    return choice;
 }
 
 function getHumanChoice() {
     // Enter number between [0,2]
     const choice = Number(prompt("Your Turn"));
-
-    switch (choice) {
-        case ROCK: return "rock";
-        case PAPER: return "paper";
-        case SCISSORS: return "scissors";
-        default: return "N/A";
-    }
+    return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -90,3 +78,7 @@ function playRound(humanChoice, computerChoice) {
 
 let humanScore = 0;
 let computerScore = 0;
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+playRound(humanChoice, computerChoice);
