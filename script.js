@@ -71,7 +71,7 @@ function playGame() {
                 winner = handleHumanRock(computerChoice);
                 break;
             case "paper":
-                winnner = handleHumanPaper(computerChoice);
+                winner = handleHumanPaper(computerChoice);
                 break;
             case "scissors":
                 winner = handleHumanScissors(computerChoice);
@@ -83,7 +83,19 @@ function playGame() {
 
         switch (winner) {
             case HUMAN:
-                // console.log("You win! " + humanChoice + " beats " + );
+                console.log("You win! " + humanChoice + " beats " + toStringChoice(computerChoice));
+                ++humanScore;
+                break;
+            case COMPUTER:
+                console.log("You lose! " + humanChoice + " beaten by " + toStringChoice(computerChoice));
+                ++computerScore;
+                break;
+            case TIE:
+                console.log("Tie! Nobody wins this round");
+                break;
+            default:
+                console.log(NONE);
+                break;
         }
     }
 
