@@ -9,14 +9,14 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // Enter number between [0,2]
-    const choice = Number(prompt("Your Turn"));
-    return choice;
+    // Enter "rock", "paper", or "scissors"
+    const choice = prompt("Your Turn");
+    return choice.toLowerCase();
 }
 
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
-        case ROCK:
+        case "rock":
             switch (computerChoice) {
                 case ROCK:
                     console.log("Tie! Nobody wins this round");
@@ -34,7 +34,7 @@ function playRound(humanChoice, computerChoice) {
                     break;
             }
             break;
-        case PAPER:
+        case "paper":
             switch (computerChoice) {
                 case ROCK:
                     console.log("You win! Paper beats Rock!");
@@ -52,7 +52,7 @@ function playRound(humanChoice, computerChoice) {
                     break;
             }
             break;
-        case SCISSORS:
+        case "scissors":
             switch (computerChoice) {
                 case ROCK:
                     console.log("You lose! Rock beats Scissors");
