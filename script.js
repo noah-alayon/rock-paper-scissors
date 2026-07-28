@@ -11,6 +11,7 @@ const HUMAN = "human";
 // Default switch case
 const NONE = "N/A";
 
+// Used for showRoundResult()
 function toStringChoice(computerChoice) {
     switch (computerChoice) {
         case ROCK: return "rock";
@@ -20,7 +21,7 @@ function toStringChoice(computerChoice) {
     }
 }
 
-function showRoundResult(winner) {
+function showRoundResult(humanChoice, computerChoice, winner) {
     switch (winner) {
         case HUMAN:
             console.log(`You win! ${humanChoice} beats ${toStringChoice(computerChoice)}`);
@@ -90,18 +91,20 @@ function playGame() {
             default: console.log(NONE); break;
         }
 
-        showRoundResult(winner);
+        showRoundResult(humanChoice, computerChoice, winner);
 
         if (winner === HUMAN) ++humanScore;
         if (winner === COMPUTER) ++computerScore;
     }
 
+    // Main game loop
     while (humanScore < 3 && computerScore < 3) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
 
+    // End of the game
     if (humanScore >= 3) console.log("You win!");
     if (computerScore >= 3) console.log("You lose");
 }
