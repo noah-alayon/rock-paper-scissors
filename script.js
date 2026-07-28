@@ -85,6 +85,13 @@ function playGame() {
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
+
+    if (humanScore >= 3) {
+        console.log("You win!");
+    }
+    else if (computerScore >= 3) {
+        console.log("You lose");
+    }
 }
 
 playGame();
