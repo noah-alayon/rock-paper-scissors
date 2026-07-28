@@ -11,7 +11,7 @@ const HUMAN = "human";
 // Default switch case
 const NONE = "N/A";
 
-// Used for showRoundResult()
+// Used for showRoundResult() and humanChoice
 function toStringChoice(computerChoice) {
     switch (computerChoice) {
         case ROCK: return "rock";
