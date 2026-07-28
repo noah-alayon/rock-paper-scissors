@@ -11,6 +11,15 @@ const HUMAN = "human";
 // Default switch case
 const NONE = "N/A";
 
+function toStringChoice(computerChoice) {
+    switch (computerChoice) {
+        case ROCK: return "rock";
+        case PAPER: return "paper";
+        case SCISSORS: return "scissors";
+        default: return NONE;
+    }
+}
+
 function getComputerChoice() {
     // Generate random number between [0,2]
     const choice = Math.floor(Math.random() * 3);
@@ -24,7 +33,6 @@ function getHumanChoice() {
 }
 
 function playGame() {
-    // Keep track of score throughout the game
     let humanScore = 0;
     let computerScore = 0;
 
@@ -56,64 +64,26 @@ function playGame() {
     }
 
     function playRound(humanChoice, computerChoice) {
+        let winner = TIE;
+
         switch (humanChoice) {
             case "rock":
-                switch (computerChoice) {
-                    case ROCK:
-                        console.log("Tie! Nobody wins this round");
-                        break;
-                    case PAPER:
-                        console.log("You lose! Paper beats Rock");
-                        ++computerScore;
-                        break;
-                    case SCISSORS:
-                        console.log("You win! Rock beats Scissors!");
-                        ++humanScore;
-                        break;
-                    default:
-                        console.log("N/A");
-                        break;
-                }
+                winner = handleHumanRock(computerChoice);
                 break;
             case "paper":
-                switch (computerChoice) {
-                    case ROCK:
-                        console.log("You win! Paper beats Rock!");
-                        ++humanScore;
-                        break;
-                    case PAPER:
-                        console.log("Tie! Nobody wins this round");
-                        break;
-                    case SCISSORS:
-                        console.log("You lose! Scissors beats Paper");
-                        ++computerScore;
-                        break;
-                    default:
-                        console.log("N/A");
-                        break;
-                }
+                winnner = handleHumanPaper(computerChoice);
                 break;
             case "scissors":
-                switch (computerChoice) {
-                    case ROCK:
-                        console.log("You lose! Rock beats Scissors");
-                        ++computerScore;
-                        break;
-                    case PAPER:
-                        console.log("You win! Scissors beats Paper!");
-                        ++humanScore;
-                        break;
-                    case SCISSORS:
-                        console.log("Tie! Nobody wins this round");
-                        break;
-                    default:
-                        console.log("N/A");
-                        break;
-                }
+                winner = handleHumanScissors(computerChoice);
                 break;
             default:
-                console.log("N/A");
+                console.log(NONE);
                 break;
+        }
+
+        switch (winner) {
+            case HUMAN:
+                // console.log("You win! " + humanChoice + " beats " + );
         }
     }
 
