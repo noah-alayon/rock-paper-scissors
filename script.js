@@ -84,11 +84,9 @@ function playGame() {
         switch (winner) {
             case HUMAN:
                 console.log("You win! " + humanChoice + " beats " + toStringChoice(computerChoice));
-                ++humanScore;
                 break;
             case COMPUTER:
                 console.log("You lose! " + humanChoice + " beaten by " + toStringChoice(computerChoice));
-                ++computerScore;
                 break;
             case TIE:
                 console.log("Tie! Nobody wins this round");
@@ -96,6 +94,14 @@ function playGame() {
             default:
                 console.log(NONE);
                 break;
+        }
+
+        if (winner === HUMAN) {
+            ++humanScore;
+        }
+        
+        if (winner === COMPUTER) {
+            ++computerScore;
         }
     }
 
