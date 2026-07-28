@@ -46,6 +46,15 @@ function playGame() {
         }
     }
 
+    function handleHumanScissors(computerChoice) {
+        switch (computerChoice) {
+            case ROCK: return COMPUTER;
+            case PAPER: return HUMAN;
+            case SCISSORS: return TIE;
+            default: return NONE;
+        }
+    }
+
     function playRound(humanChoice, computerChoice) {
         switch (humanChoice) {
             case "rock":
