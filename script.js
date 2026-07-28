@@ -1,9 +1,18 @@
+// Computer choice uses RNG
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
 
+// Determine winner
+const TIE = "tie";
+const COMPUTER = "computer";
+const HUMAN = "human";
+
+// Default switch case
+const NONE = "N/A";
+
 function getComputerChoice() {
-    // Generate number between [0,2]
+    // Generate random number between [0,2]
     const choice = Math.floor(Math.random() * 3);
     return choice;
 }
@@ -15,8 +24,18 @@ function getHumanChoice() {
 }
 
 function playGame() {
+    // Keep track of score throughout the game
     let humanScore = 0;
     let computerScore = 0;
+
+    function handleHumanRock(computerChoice) {
+        switch (computerChoice) {
+            case ROCK: return TIE;
+            case PAPER: return COMPUTER;
+            case SCISSORS: return HUMAN;
+            default: return NONE;
+        }
+    }
 
     function playRound(humanChoice, computerChoice) {
         switch (humanChoice) {
