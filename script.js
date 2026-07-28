@@ -76,9 +76,15 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    while (humanScore < 3 && computerScore < 3) {
+        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    }
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
+playGame();
