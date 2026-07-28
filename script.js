@@ -22,8 +22,8 @@ function toStringChoice(computerChoice) {
 
 function showRoundResult(winner) {
     switch (winner) {
-        case HUMAN: 
-            console.log(`You win! ${humanChoice} beats ${toStringChoice(computerChoice)}`); 
+        case HUMAN:
+            console.log(`You win! ${humanChoice} beats ${toStringChoice(computerChoice)}`);
             break;
         case COMPUTER:
             console.log(`You lose! ${humanChoice} beaten by ${toStringChoice(computerChoice)}`);
@@ -84,21 +84,16 @@ function playGame() {
         let winner = TIE;
 
         switch (humanChoice) {
-            case "rock": winner = handleHumanRock(computerChoice); break;
-            case "paper": winner = handleHumanPaper(computerChoice); break;
-            case "scissors": winner = handleHumanScissors(computerChoice); break;
+            case toStringChoice(ROCK): winner = handleHumanRock(computerChoice); break;
+            case toStringChoice(PAPER): winner = handleHumanPaper(computerChoice); break;
+            case toStringChoice(SCISSORS): winner = handleHumanScissors(computerChoice); break;
             default: console.log(NONE); break;
         }
 
         showRoundResult(winner);
 
-        if (winner === HUMAN) {
-            ++humanScore;
-        }
-
-        if (winner === COMPUTER) {
-            ++computerScore;
-        }
+        if (winner === HUMAN) ++humanScore;
+        if (winner === COMPUTER) ++computerScore;
     }
 
     while (humanScore < 3 && computerScore < 3) {
@@ -107,12 +102,8 @@ function playGame() {
         playRound(humanChoice, computerChoice);
     }
 
-    if (humanScore >= 3) {
-        console.log("You win!");
-    }
-    else if (computerScore >= 3) {
-        console.log("You lose");
-    }
+    if (humanScore >= 3) console.log("You win!");
+    if (computerScore >= 3) console.log("You lose");
 }
 
 playGame();
