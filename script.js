@@ -20,6 +20,23 @@ function toStringChoice(computerChoice) {
     }
 }
 
+function showRoundResult(winner) {
+    switch (winner) {
+        case HUMAN: 
+            console.log(`You win! ${humanChoice} beats ${toStringChoice(computerChoice)}`); 
+            break;
+        case COMPUTER:
+            console.log(`You lose! ${humanChoice} beaten by ${toStringChoice(computerChoice)}`);
+            break;
+        case TIE:
+            console.log("Tie! Nobody wins this round");
+            break;
+        default:
+            console.log(NONE);
+            break;
+    }
+}
+
 function getComputerChoice() {
     // Generate random number between [0,2]
     const choice = Math.floor(Math.random() * 3);
@@ -67,39 +84,18 @@ function playGame() {
         let winner = TIE;
 
         switch (humanChoice) {
-            case "rock":
-                winner = handleHumanRock(computerChoice);
-                break;
-            case "paper":
-                winner = handleHumanPaper(computerChoice);
-                break;
-            case "scissors":
-                winner = handleHumanScissors(computerChoice);
-                break;
-            default:
-                console.log(NONE);
-                break;
+            case "rock": winner = handleHumanRock(computerChoice); break;
+            case "paper": winner = handleHumanPaper(computerChoice); break;
+            case "scissors": winner = handleHumanScissors(computerChoice); break;
+            default: console.log(NONE); break;
         }
 
-        switch (winner) {
-            case HUMAN:
-                console.log("You win! " + humanChoice + " beats " + toStringChoice(computerChoice));
-                break;
-            case COMPUTER:
-                console.log("You lose! " + humanChoice + " beaten by " + toStringChoice(computerChoice));
-                break;
-            case TIE:
-                console.log("Tie! Nobody wins this round");
-                break;
-            default:
-                console.log(NONE);
-                break;
-        }
+        showRoundResult(winner);
 
         if (winner === HUMAN) {
             ++humanScore;
         }
-        
+
         if (winner === COMPUTER) {
             ++computerScore;
         }
