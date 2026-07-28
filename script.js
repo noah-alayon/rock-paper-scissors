@@ -14,77 +14,77 @@ function getHumanChoice() {
     return choice.toLowerCase();
 }
 
-function playRound(humanChoice, computerChoice) {
-    switch (humanChoice) {
-        case "rock":
-            switch (computerChoice) {
-                case ROCK:
-                    console.log("Tie! Nobody wins this round");
-                    break;
-                case PAPER:
-                    console.log("You lose! Paper beats Rock");
-                    ++computerScore;
-                    break;
-                case SCISSORS:
-                    console.log("You win! Rock beats Scissors!");
-                    ++humanScore;
-                    break;
-                default:
-                    console.log("N/A");
-                    break;
-            }
-            break;
-        case "paper":
-            switch (computerChoice) {
-                case ROCK:
-                    console.log("You win! Paper beats Rock!");
-                    ++humanScore;
-                    break;
-                case PAPER:
-                    console.log("Tie! Nobody wins this round");
-                    break;
-                case SCISSORS:
-                    console.log("You lose! Scissors beats Paper");
-                    ++computerScore;
-                    break;
-                default:
-                    console.log("N/A");
-                    break;
-            }
-            break;
-        case "scissors":
-            switch (computerChoice) {
-                case ROCK:
-                    console.log("You lose! Rock beats Scissors");
-                    ++computerScore;
-                    break;
-                case PAPER:
-                    console.log("You win! Scissors beats Paper!");
-                    ++humanScore;
-                    break;
-                case SCISSORS:
-                    console.log("Tie! Nobody wins this round");
-                    break;
-                default:
-                    console.log("N/A");
-                    break;
-            }
-            break;
-        default:
-            console.log("N/A");
-            break;
-    }
-}
-
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        switch (humanChoice) {
+            case "rock":
+                switch (computerChoice) {
+                    case ROCK:
+                        console.log("Tie! Nobody wins this round");
+                        break;
+                    case PAPER:
+                        console.log("You lose! Paper beats Rock");
+                        ++computerScore;
+                        break;
+                    case SCISSORS:
+                        console.log("You win! Rock beats Scissors!");
+                        ++humanScore;
+                        break;
+                    default:
+                        console.log("N/A");
+                        break;
+                }
+                break;
+            case "paper":
+                switch (computerChoice) {
+                    case ROCK:
+                        console.log("You win! Paper beats Rock!");
+                        ++humanScore;
+                        break;
+                    case PAPER:
+                        console.log("Tie! Nobody wins this round");
+                        break;
+                    case SCISSORS:
+                        console.log("You lose! Scissors beats Paper");
+                        ++computerScore;
+                        break;
+                    default:
+                        console.log("N/A");
+                        break;
+                }
+                break;
+            case "scissors":
+                switch (computerChoice) {
+                    case ROCK:
+                        console.log("You lose! Rock beats Scissors");
+                        ++computerScore;
+                        break;
+                    case PAPER:
+                        console.log("You win! Scissors beats Paper!");
+                        ++humanScore;
+                        break;
+                    case SCISSORS:
+                        console.log("Tie! Nobody wins this round");
+                        break;
+                    default:
+                        console.log("N/A");
+                        break;
+                }
+                break;
+            default:
+                console.log("N/A");
+                break;
+        }
+    }
+
     while (humanScore < 3 && computerScore < 3) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
 }
-
-let humanScore = 0;
-let computerScore = 0;
 
 playGame();
