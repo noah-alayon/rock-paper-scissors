@@ -51,9 +51,6 @@ function getHumanChoice() {
 }
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
     function handleHumanRock(computerChoice) {
         switch (computerChoice) {
             case ROCK: return TIE;
@@ -81,18 +78,29 @@ function playGame() {
         }
     }
 
+    let humanScore = 0;
+    let computerScore = 0;
+
     function playRound(humanChoice, computerChoice) {
         let winner = TIE;
 
         switch (humanChoice) {
-            case toStringChoice(ROCK): winner = handleHumanRock(computerChoice); break;
-            case toStringChoice(PAPER): winner = handleHumanPaper(computerChoice); break;
-            case toStringChoice(SCISSORS): winner = handleHumanScissors(computerChoice); break;
-            default: console.log(NONE); break;
+            case toStringChoice(ROCK): 
+                winner = handleHumanRock(computerChoice); 
+                break;
+            case toStringChoice(PAPER): 
+                winner = handleHumanPaper(computerChoice); 
+                break;
+            case toStringChoice(SCISSORS): 
+                winner = handleHumanScissors(computerChoice); 
+                break;
+            default: 
+                console.log(NONE); 
+                break;
         }
 
         showRoundResult(humanChoice, computerChoice, winner);
-
+        
         if (winner === HUMAN) ++humanScore;
         if (winner === COMPUTER) ++computerScore;
     }
