@@ -24,10 +24,16 @@ function toStringChoice(computerChoice) {
 function showRoundResult(humanChoice, computerChoice, winner) {
     switch (winner) {
         case HUMAN:
-            console.log(`You win! ${humanChoice} beats ${toStringChoice(computerChoice)}`);
+            console.log(
+                `You win! ${humanChoice} ` + 
+                `beats ${toStringChoice(computerChoice)}`
+            );
             break;
         case COMPUTER:
-            console.log(`You lose! ${humanChoice} beaten by ${toStringChoice(computerChoice)}`);
+            console.log(
+                `You lose! ${humanChoice} ` + 
+                `beaten by ${toStringChoice(computerChoice)}`
+            );
             break;
         case TIE:
             console.log("Tie! Nobody wins this round");
