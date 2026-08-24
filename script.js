@@ -84,9 +84,6 @@ function playGame() {
         }
     }
 
-    let humanScore = 0;
-    let computerScore = 0;
-
     function playRound(humanChoice, computerChoice) {
         let winner = TIE;
 
@@ -105,22 +102,18 @@ function playGame() {
                 break;
         }
 
-        showRoundResult(humanChoice, computerChoice, winner);
-        
-        if (winner === HUMAN) ++humanScore;
-        if (winner === COMPUTER) ++computerScore;
+        return winner;
     }
-
-    // Main game loop
-    while (humanScore < 3 && computerScore < 3) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
+    
+    // Main game
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    let winner = playRound(humanChoice, computerChoice);
+    showRoundResult(humanChoice, computerChoice, winner);
 
     // End of the game
-    if (humanScore >= 3) console.log("You win!");
-    if (computerScore >= 3) console.log("You lose");
+    if (winner == HUMAN) console.log("You win!");
+    if (winner == COMPUTER) console.log("You lose");
 }
 
 playGame();
