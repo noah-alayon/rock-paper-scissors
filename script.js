@@ -84,6 +84,9 @@ function playGame() {
         }
     }
 
+    let humanScore = 0;
+    let computerScore = 0;
+
     function playRound(humanChoice, computerChoice) {
         let winner = TIE;
 
@@ -107,9 +110,6 @@ function playGame() {
         if (winner === HUMAN) ++humanScore;
         if (winner === COMPUTER) ++computerScore;
     }
-
-    let humanScore = 0;
-    let computerScore = 0;
 
     // Main game loop
     while (humanScore < 3 && computerScore < 3) {
