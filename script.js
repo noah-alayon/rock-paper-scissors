@@ -116,4 +116,4 @@ function playGame() {
     if (winner == COMPUTER) console.log("You lose");
 }
 
-playGame();
+// playGame();
