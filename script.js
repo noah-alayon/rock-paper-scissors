@@ -11,6 +11,9 @@ const HUMAN = "human";
 // Default switch case
 const NONE = "N/A";
 
+// Used for showRoundResult()
+const resultMessage = document.querySelector(".rps-result");
+
 // Used for showRoundResult() and humanChoice
 function toStringChoice(computerChoice) {
     switch (computerChoice) {
@@ -24,19 +27,18 @@ function toStringChoice(computerChoice) {
 function showRoundResult(humanChoice, computerChoice, winner) {
     switch (winner) {
         case HUMAN:
-            console.log(
+            resultMessage.textContent = 
                 `You win! ${humanChoice} ` + 
-                `beats ${toStringChoice(computerChoice)}`
-            );
+                `beats ${toStringChoice(computerChoice)}`;
             break;
         case COMPUTER:
-            console.log(
+            resultMessage.textContent =
                 `You lose! ${humanChoice} ` + 
-                `beaten by ${toStringChoice(computerChoice)}`
-            );
+                `beaten by ${toStringChoice(computerChoice)}`;
             break;
         case TIE:
-            console.log("Tie! Nobody wins this round");
+            resultMessage.textContent =
+                `Tie! Nobody wins this round`;
             break;
         default:
             console.log(NONE);
