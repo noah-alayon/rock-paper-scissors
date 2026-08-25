@@ -52,12 +52,6 @@ function getComputerChoice() {
     return choice;
 }
 
-function getHumanChoice() {
-    // Enter "rock", "paper", or "scissors"
-    const choice = prompt("Your Turn");
-    return choice.toLowerCase();
-}
-
 function playGame() {
     function handleHumanRock(computerChoice) {
         switch (computerChoice) {
