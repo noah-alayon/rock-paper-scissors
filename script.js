@@ -104,16 +104,17 @@ function playGame() {
 
         return winner;
     }
-    
-    // Main game
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    let winner = playRound(humanChoice, computerChoice);
-    showRoundResult(humanChoice, computerChoice, winner);
 
-    // End of the game
-    if (winner == HUMAN) console.log("You win!");
-    if (winner == COMPUTER) console.log("You lose");
+    const choices = document.querySelectorAll(".choice-btn");
+
+    choices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+            const humanChoice = choice.id;
+            const computerChoice = getComputerChoice();
+            const winner = playRound(humanChoice, computerChoice);
+            showRoundResult(humanChoice, computerChoice, winner);
+        });
+    });
 }
 
-// playGame();
+playGame();
