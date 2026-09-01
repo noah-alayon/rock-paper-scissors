@@ -1,0 +1,27 @@
+.rps-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-container {
+    width: 700px;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.choice-card {
+    border: solid;
+    width: 200px;
+    height: 200px;
+}
+
+.choice-btn {
+    width: 100px;
+    height: 40px;
+    margin: 0 16px;
+}

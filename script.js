@@ -12,7 +12,7 @@ const HUMAN = "human";
 const NONE = "N/A";
 
 // Used for showRoundResult()
-const resultMessage = document.querySelector(".rps-result");
+const resultMessage = document.querySelector(".rps-message");
 
 // Used for showRoundResult() and humanChoice
 function toStringChoice(computerChoice) {
