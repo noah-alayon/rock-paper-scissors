@@ -7,7 +7,7 @@
 
 .result-container {
     width: 700px;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,17 +18,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 24px;
 }
 
 .score {
     margin-bottom: 16px;
-    font-size: 24px;
 }
 
 .choice-card {
     border: solid;
     width: 200px;
     height: 200px;
+    margin-bottom: 16px;
+}
+
+.rps-message {
+    font-size: 36px;
 }
 
 .choice-btn {
