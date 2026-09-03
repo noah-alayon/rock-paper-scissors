@@ -14,6 +14,17 @@
     gap: 16px;
 }
 
+.score-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
 .choice-card {
     border: solid;
     width: 200px;
