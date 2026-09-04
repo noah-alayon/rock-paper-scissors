@@ -36,7 +36,7 @@ function showRoundResult(humanChoice, computerChoice, winner) {
             resultMessage.textContent = "Tie!";
             break;
         default:
-            console.log(NONE);
+            resultMessage.textContent = NONE;
             break;
     }
 }
@@ -97,13 +97,19 @@ function playGame() {
     }
 
     const choices = document.querySelectorAll(".choice-btn");
+    const humanHand = document.querySelector("#human-hand");
+    const computerHand = document.querySelector("#computer-hand");
 
     choices.forEach((choice) => {
         choice.addEventListener("click", () => {
             const humanChoice = choice.id;
             const computerChoice = getComputerChoice();
+            humanHand.src = `./images/hand-${humanChoice}.png`;
+            computerHand.src = `./images/hand-${toStringChoice(computerChoice)}.png`;
             const winner = playRound(humanChoice, computerChoice);
+            // update the score
             showRoundResult(humanChoice, computerChoice, winner);
+            // winner of the game
         });
     });
 }

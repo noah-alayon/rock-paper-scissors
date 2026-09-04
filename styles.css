@@ -32,6 +32,11 @@
     margin-bottom: 16px;
 }
 
+.choice-card * {
+    width: inherit;
+    height: inherit;
+}
+
 .rps-message {
     font-size: 36px;
 }
