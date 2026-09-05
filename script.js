@@ -79,17 +79,17 @@ function playGame() {
         let winner = TIE;
 
         switch (humanChoice) {
-            case toStringChoice(ROCK): 
-                winner = handleHumanRock(computerChoice); 
+            case toStringChoice(ROCK):
+                winner = handleHumanRock(computerChoice);
                 break;
-            case toStringChoice(PAPER): 
-                winner = handleHumanPaper(computerChoice); 
+            case toStringChoice(PAPER):
+                winner = handleHumanPaper(computerChoice);
                 break;
-            case toStringChoice(SCISSORS): 
-                winner = handleHumanScissors(computerChoice); 
+            case toStringChoice(SCISSORS):
+                winner = handleHumanScissors(computerChoice);
                 break;
-            default: 
-                console.log(NONE); 
+            default:
+                console.log(NONE);
                 break;
         }
 
@@ -110,8 +110,10 @@ function playGame() {
             // Make choices and determine the winner
             const humanChoice = choice.id;
             const computerChoice = getComputerChoice();
-            humanHand.src = `./images/hand-${humanChoice}.png`;
-            computerHand.src = `./images/hand-${toStringChoice(computerChoice)}.png`;
+            humanHand.src = 
+                `./images/hand-${humanChoice}.png`;
+            computerHand.src =
+                `./images/hand-${toStringChoice(computerChoice)}.png`;
             const winner = playRound(humanChoice, computerChoice);
             
             // Update the score and show result
