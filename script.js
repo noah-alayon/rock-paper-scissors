@@ -24,7 +24,7 @@ function toStringChoice(computerChoice) {
     }
 }
 
-function showRoundResult(humanChoice, computerChoice, winner) {
+function showRoundResult(winner) {
     switch (winner) {
         case HUMAN:
             resultMessage.textContent = "You Win!"
@@ -107,32 +107,25 @@ function playGame() {
 
     choices.forEach((choice) => {
         choice.addEventListener("click", () => {
+            // Make choices and determine the winner
             const humanChoice = choice.id;
             const computerChoice = getComputerChoice();
             humanHand.src = `./images/hand-${humanChoice}.png`;
             computerHand.src = `./images/hand-${toStringChoice(computerChoice)}.png`;
             const winner = playRound(humanChoice, computerChoice);
-            // update the score
-            if (winner == HUMAN) {
-                ++humanScore;
-                humanScoreDisplay.textContent = `${humanScore}`;
-            }
-            if (winner == COMPUTER) {
-                ++computerScore;
-                computerScoreDisplay.textContent = `${computerScore}`;
-            }
-            showRoundResult(humanChoice, computerChoice, winner);
-            // winner of the game
+            
+            // Update the score and show result
+            if (winner == HUMAN) ++humanScore;
+            if (winner == COMPUTER) ++computerScore;
+            humanScoreDisplay.textContent = `${humanScore}`;
+            computerScoreDisplay.textContent = `${computerScore}`;
+            showRoundResult(winner);
+            
+            // End of the game, best 3 out of 5
             if (humanScore >= 3 || computerScore >= 3) {
                 choices.forEach((choice) => {
                     choice.disabled = true;
                 });
-            }
-            if (humanScore >= 3) {
-                resultMessage.textContent = "Game Won!";
-            }
-            else if (computerScore >= 3) {
-                resultMessage.textContent = "Game Lost";
             }
         });
     });
