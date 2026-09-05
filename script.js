@@ -99,6 +99,11 @@ function playGame() {
     const choices = document.querySelectorAll(".choice-btn");
     const humanHand = document.querySelector("#human-hand");
     const computerHand = document.querySelector("#computer-hand");
+    const humanScoreDisplay = document.querySelector("#human-score");
+    const computerScoreDisplay = document.querySelector("#computer-score");
+
+    let humanScore = 0;
+    let computerScore = 0;
 
     choices.forEach((choice) => {
         choice.addEventListener("click", () => {
@@ -108,8 +113,27 @@ function playGame() {
             computerHand.src = `./images/hand-${toStringChoice(computerChoice)}.png`;
             const winner = playRound(humanChoice, computerChoice);
             // update the score
+            if (winner == HUMAN) {
+                ++humanScore;
+                humanScoreDisplay.textContent = `${humanScore}`;
+            }
+            if (winner == COMPUTER) {
+                ++computerScore;
+                computerScoreDisplay.textContent = `${computerScore}`;
+            }
             showRoundResult(humanChoice, computerChoice, winner);
             // winner of the game
+            if (humanScore >= 3 || computerScore >= 3) {
+                choices.forEach((choice) => {
+                    choice.disabled = true;
+                });
+            }
+            if (humanScore >= 3) {
+                resultMessage.textContent = "Game Won!";
+            }
+            else if (computerScore >= 3) {
+                resultMessage.textContent = "Game Lost";
+            }
         });
     });
 }
